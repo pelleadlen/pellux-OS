@@ -1,7 +1,7 @@
 const Navigation = () => {
   return (
     <>
-      <header>
+      <header className="text-xl">
         <nav>Home</nav>
       </header>
     </>
