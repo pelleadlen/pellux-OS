@@ -18,7 +18,7 @@ export const Navigation = () => {
 
   return (
     <>
-      <nav className="text-xl w-full flex flex-col items-center  p-4 fixed ">
+      <nav className="text-xl w-fit mx-auto flex flex-col items-center p-4 fixed ">
         <Listbox value={selectedRoute} onChange={setSelectedRoute}>
           <Listbox.Button
             title={selectedRoute.name}
