@@ -2,14 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Regular */
+@font-face {
+  font-family: Matter;
+  src: url("./fonts/Matter-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Medium */
+@font-face {
+  font-family: Matter;
+  src: url("./fonts/Matter-Medium.otf") format("opentype");
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* Semibold */
+@font-face {
+  font-family: Matter;
+  src: url("./fonts/Matter-SemiBold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 600;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Matter, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   padding: 0;
 }
-
-
-
