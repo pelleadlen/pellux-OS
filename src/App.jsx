@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Navigation />
-      <div className="min-h-screen grid place-items-center">
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About />} />

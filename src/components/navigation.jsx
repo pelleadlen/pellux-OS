@@ -26,11 +26,15 @@ export const Navigation = () => {
               <Sort />
             </span>
           </Listbox.Button>
-          <Listbox.Options className="absolute">
+          <Listbox.Options className="absolute w-[180px] py-2 bg-white border  border-gray-100 rounded-xl mt-4 ">
             {filteredRoutes.map((link) => (
               <>
                 <Link to={link.path}>
-                  <Listbox.Option key={link.id} value={link}>
+                  <Listbox.Option
+                    className="text-sm leading-8 px-4 hover:bg-gray-100"
+                    key={link.id}
+                    value={link}
+                  >
                     {link.name}
                   </Listbox.Option>
                 </Link>
