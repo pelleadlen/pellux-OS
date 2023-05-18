@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Listbox } from "@headlessui/react";
+import { Listbox, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Sort } from "../icons/CaretSort.svg";
 
@@ -18,29 +18,41 @@ export const Navigation = () => {
 
   return (
     <>
-      <nav className="text-xl mx-auto w-fit p-4">
+      <nav className="text-xl w-full flex flex-col items-center  p-4 fixed ">
         <Listbox value={selectedRoute} onChange={setSelectedRoute}>
-          <Listbox.Button className="flex items-center gap-2">
-            {selectedRoute.name}{" "}
+          <Listbox.Button
+            title={selectedRoute.name}
+            className="flex items-center gap-2"
+          >
+            {selectedRoute.name}
             <span>
               <Sort />
             </span>
           </Listbox.Button>
-          <Listbox.Options className="absolute w-[180px] py-2 bg-white border  border-gray-100 rounded-xl mt-4 ">
-            {filteredRoutes.map((link) => (
-              <>
-                <Link to={link.path}>
-                  <Listbox.Option
-                    className="text-sm leading-8 px-4 hover:bg-gray-100"
-                    key={link.id}
-                    value={link}
-                  >
-                    {link.name}
-                  </Listbox.Option>
-                </Link>
-              </>
-            ))}
-          </Listbox.Options>
+          <Transition
+            enter="transition duration-300 ease-out"
+            enterFrom="-translate-y-2 opacity-0"
+            enterTo="translate-y-0 opacity-100"
+            leave="transition duration-300 ease-in"
+            leaveFrom="translate-y-0 opacity-100"
+            leaveTo="-translate-y-2 opacity-0"
+          >
+            <Listbox.Options className="w-[180px] py-2 bg-white border  border-gray-100 rounded-xl mt-4 ">
+              {filteredRoutes.map((link) => (
+                <>
+                  <Link to={link.path}>
+                    <Listbox.Option
+                      className="text-sm leading-8 px-4 hover:bg-gray-100"
+                      key={link.id}
+                      value={link}
+                    >
+                      {link.name}
+                    </Listbox.Option>
+                  </Link>
+                </>
+              ))}
+            </Listbox.Options>
+          </Transition>
         </Listbox>
       </nav>
     </>
